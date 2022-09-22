@@ -80,3 +80,29 @@ textarea {
 .btn .material-icons {
   font-size: 20px;
 }
+
+@media all and (max-width: 900px) {
+  #main {
+    display: block;
+    margin: 50px 50px;
+  }
+  #translator {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+  .option {
+    height: clamp(30px, 15vw, 60px);
+    padding: clamp(15px, 2vw, 30px);
+    font-size: clamp(14px, 3vw, 30px);
+  }
+  textarea {
+    font-size: clamp(14px, 3vw, 18px);
+  }
+  .content {
+    height: clamp(230px, 60vw, 300px);
+  }
+  .btn {
+    padding: 10px 15px;
+    box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 0.1);
+  }
+}

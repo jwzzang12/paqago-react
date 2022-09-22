@@ -3,9 +3,10 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Item() {
   const btnRef = useRef();
+  const defaultRef = useRef();
   const resultRef = useRef();
-  const [lang, setLang] = useState("ko");
-  const [selLang, setSelLang] = useState("en");
+  const [lang, setLang] = useState("en");
+  const [selLang, setSelLang] = useState("ko");
   const [value, setValue] = useState([]);
   const [result, setResult] = useState("");
   const copy = () => {
@@ -37,8 +38,8 @@ export default function Item() {
             setLang(e.currentTarget.value);
           }}
         >
-          <option value="ko">한국어</option>
           <option value="en">영어</option>
+          <option value="ko">한국어</option>
           <option value="ja">일본어</option>
           <option value="zh-CN">중국어 간체</option>
           <option value="zh-TW">중국어 번체</option>
@@ -64,6 +65,7 @@ export default function Item() {
           onChange={(e) => {
             setSelLang(e.currentTarget.value);
           }}
+          ref={defaultRef}
         >
           <option value="ko">한국어</option>
           <option value="en">영어</option>
