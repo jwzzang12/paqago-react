@@ -43,9 +43,11 @@ a {
   border: none;
   outline: none;
   appearance: none;
+  position: relative;
+
   background: {
     position: right 20px top 50%;
-    // image: url("images/arrow_drop_down.svg");
+    image: url("../../public/images/arrow_drop_down.png");
     size: 30px;
     repeat: no-repeat;
   }
@@ -69,11 +71,11 @@ textarea {
   right: 20px;
   bottom: 20px;
   padding: 15px 20px;
-  .material-icons {
-    font-size: 20px;
-  }
   border: none;
   box-shadow: 15px 15px 10px -10px rgba(0, 0, 0, 0.1), 2px 2px 10px 5px rgba(0, 0, 0, 0.1);
   background-color: rgba(65, 170, 255, 0.8);
   border-radius: 5px;
+  .material-icons {
+    font-size: 20px;
+  }
 }

@@ -3,29 +3,36 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Item() {
   const btnRef = useRef();
+  const resultRef = useRef();
   const [lang, setLang] = useState("ko");
   const [selLang, setSelLang] = useState("en");
   const [value, setValue] = useState([]);
   const [result, setResult] = useState("");
+  const copy = () => {
+    const el = resultRef.current;
+    el.select();
+    document.execCommand("Copy");
+    alert("COPIED!");
+  };
+
   const translate = () => {
     axios
-      .post("http://127.0.0.1:8099", {
+      .post("https://paqago-server.herokuapp.com/papago", {
         source: lang,
         target: selLang,
         text: value,
       })
       .then((res) => {
         setResult(res.data.result);
-        console.log(result);
       });
   };
   return (
     <main id="main">
-      <div id="translator" class="content">
+      <div id="translator" className="content">
         <select
           name="language"
           id="language"
-          class="option"
+          className="option"
           onChange={(e) => {
             setLang(e.currentTarget.value);
           }}
@@ -45,15 +52,15 @@ export default function Item() {
           }}
           onClick={translate}
         ></textarea>
-        <button class="btn" id="btnTR" ref={btnRef} onClick={translate}>
-          <span class="material-icons"> cached </span>
+        <button className="btn" id="btnTR" ref={btnRef} onClick={translate}>
+          <span className="material-icons"> cached </span>
         </button>
       </div>
-      <div id="resultBox" class="content">
+      <div id="resultBox" className="content">
         <select
           name="translated"
           id="translated"
-          class="option"
+          className="option"
           onChange={(e) => {
             setSelLang(e.currentTarget.value);
           }}
@@ -64,10 +71,10 @@ export default function Item() {
           <option value="zh-CN">중국어 간체</option>
           <option value="zh-TW">중국어 번체</option>
         </select>
-        <textarea id="result" readOnly value={result}></textarea>
+        <textarea id="result" readOnly value={result} ref={resultRef}></textarea>
 
-        <button class="btn" id="btnCopy">
-          <span class="material-icons"> content_copy </span>
+        <button className="btn" id="btnCopy" onClick={copy}>
+          <span className="material-icons"> content_copy </span>
         </button>
       </div>
     </main>

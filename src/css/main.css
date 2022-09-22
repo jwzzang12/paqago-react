@@ -44,7 +44,9 @@ a {
   border: none;
   outline: none;
   appearance: none;
+  position: relative;
   background-position: right 20px top 50%;
+  background-image: url("../../public/images/arrow_drop_down.png");
   background-size: 30px;
   background-repeat: no-repeat;
 }
