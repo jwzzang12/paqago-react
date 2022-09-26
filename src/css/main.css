@@ -4,10 +4,14 @@
 }
 
 body {
+  position: relative;
   font-family: "Roboto", "Noto Sans KR", sans-serif;
   font-size: 18px;
   color: #111;
   line-height: 1.5;
+  background: linear-gradient(-45deg, rgba(255, 214, 143, 0.5411764706), rgba(255, 143, 143, 0.5176470588), rgba(122, 127, 217, 0.4941176471), rgba(143, 255, 203, 0.5411764706));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 body ::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
@@ -38,13 +42,13 @@ a {
 .option {
   width: 100%;
   height: 60px;
+  position: relative;
   top: 0;
   padding: 20px;
   font-size: 20px;
   border: none;
   outline: none;
   appearance: none;
-  position: relative;
   background-position: right 20px top 50%;
   background-image: url("../../public/images/arrow_drop_down.png");
   background-size: 30px;
@@ -81,6 +85,13 @@ textarea {
   font-size: 20px;
 }
 
+.copyright {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media all and (max-width: 900px) {
   #main {
     display: block;
@@ -96,7 +107,7 @@ textarea {
     font-size: clamp(14px, 3vw, 30px);
   }
   textarea {
-    font-size: clamp(14px, 3vw, 18px);
+    height: calc(100% - clamp(30px, 15vw, 60px));
   }
   .content {
     height: clamp(230px, 60vw, 300px);
@@ -104,5 +115,19 @@ textarea {
   .btn {
     padding: 10px 15px;
     box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 0.1);
+  }
+  .copyright {
+    font-size: clamp(13px, 3vw, 16px);
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

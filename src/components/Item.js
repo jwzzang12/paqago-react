@@ -79,6 +79,9 @@ export default function Item() {
           <span className="material-icons"> content_copy </span>
         </button>
       </div>
+      <div className="copyright">
+        ALL COPYRIGHT RESERVED BY <strong>JW.MOON</strong>
+      </div>
     </main>
   );
 }
