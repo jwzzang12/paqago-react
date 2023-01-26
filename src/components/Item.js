@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 export default function Item() {
   const btnRef = useRef();
@@ -18,7 +18,7 @@ export default function Item() {
 
   const translate = () => {
     axios
-      .post("https://paqago-server.herokuapp.com/papago", {
+      .post("https://paqago-server.fly.dev/papago", {
         source: lang,
         target: selLang,
         text: value,
@@ -38,11 +38,11 @@ export default function Item() {
             setLang(e.currentTarget.value);
           }}
         >
-          <option value="en">영어</option>
-          <option value="ko">한국어</option>
-          <option value="ja">일본어</option>
-          <option value="zh-CN">중국어 간체</option>
-          <option value="zh-TW">중국어 번체</option>
+          <option value="en">English</option>
+          <option value="ko">Korean</option>
+          <option value="ja">Japanese</option>
+          <option value="zh-CN">Chinese (Simplified)</option>
+          <option value="zh-TW">Chinese (Traditional)</option>
         </select>
         <textarea
           name=""
@@ -67,11 +67,11 @@ export default function Item() {
           }}
           ref={defaultRef}
         >
-          <option value="ko">한국어</option>
-          <option value="en">영어</option>
-          <option value="ja">일본어</option>
-          <option value="zh-CN">중국어 간체</option>
-          <option value="zh-TW">중국어 번체</option>
+          <option value="ko">Korean</option>
+          <option value="en">English</option>
+          <option value="ja">Japanese</option>
+          <option value="zh-CN">Chinese (Simplified)</option>
+          <option value="zh-TW">Chinese (Traditional)</option>
         </select>
         <textarea id="result" readOnly value={result} ref={resultRef}></textarea>
 
