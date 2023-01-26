@@ -9,11 +9,21 @@ export default function Item() {
   const [selLang, setSelLang] = useState("ko");
   const [value, setValue] = useState([]);
   const [result, setResult] = useState("");
+
+  const [alert, setAlert] = useState(false);
+
+  const alertHandler = () => {
+    setAlert(true);
+    setTimeout(() => {
+      setAlert(false);
+    }, 2000);
+  };
+
   const copy = () => {
     const el = resultRef.current;
     el.select();
     document.execCommand("Copy");
-    alert("COPIED!");
+    alertHandler();
   };
 
   const translate = () => {
@@ -29,6 +39,11 @@ export default function Item() {
   };
   return (
     <main id="main">
+      {alert && (
+        <div className="alert">
+          <p>COPIED!</p>
+        </div>
+      )}
       <div id="translator" className="content">
         <select
           name="language"
@@ -47,7 +62,7 @@ export default function Item() {
         <textarea
           name=""
           id="txt"
-          placeholder="번역할 내용을 입력하세요."
+          placeholder="Enter text"
           onChange={(e) => {
             setValue(e.currentTarget.value);
           }}
